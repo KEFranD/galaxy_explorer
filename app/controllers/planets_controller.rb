@@ -1,7 +1,11 @@
 class PlanetsController < ApplicationController
-  def show
-    @planet = Planet.find(params[:id])
+  before_action :set_planet, only: %i[show edit update destroy]
+
+  def index
+    @planets = Planet.all
   end
+
+  def show; end
 
   def new
     @planet = Planet.new
@@ -14,25 +18,25 @@ class PlanetsController < ApplicationController
     redirect_to planet_path(@planet)
   end
 
-  def edit
-    @planet = Planet.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @planet = Planet.find(params[:id])
     @planet.update(planet_params)
     # No need for app/views/planets/update.html.erb
     redirect_to planet_path(@planet)
   end
 
   def destroy
-    @planet = planet.find(params[:id])
     @planet.destroy
     # No need for app/views/planets/destroy.html.erb
     redirect_to planets_path, status: :see_other
   end
 
   private
+
+  def set_planet
+    @planet = Planet.find(params[:planet_id])
+  end
 
   def planet_params
     params.require(:planet).permit(:name, :description, :location)
