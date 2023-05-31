@@ -58,6 +58,12 @@ group :development, :test do
 
 end
 
+gem "cloudinary"
+
+gem "devise"
+
+gem "pundit"
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -74,6 +80,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-
-gem "cloudinary"
-gem "pundit"
+end
