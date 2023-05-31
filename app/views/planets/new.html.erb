@@ -1,9 +1,9 @@
-<%= form_with model: @planet do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.submit %>
-<% end %>
+<h1>New planet</h1>
+
+<%= render "form", planet: @planet %>
+
+<br>
+
+<div>
+  <%= link_to "Back to planets", planets_path %>
+</div>
