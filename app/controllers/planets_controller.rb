@@ -1,8 +1,10 @@
 class PlanetsController < ApplicationController
   before_action :set_planet, only: %i[show edit update destroy]
+  
 
   def index
     @planets = policy_scope(Planet)
+    # @planets = Planet.all
   end
 
   def show
@@ -16,7 +18,7 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = Planet.new(planet_params)
-    @planet.user = current_user
+    # @planet.user = current_user
     authorize @planet
     @planet.save
     # No need for app/views/planets/create.html.erb
