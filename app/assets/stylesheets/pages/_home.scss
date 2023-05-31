@@ -32,13 +32,60 @@ z-index:0;
 
 .twinkling{
 background:transparent url(twinkling.png) repeat top center;
-z-index:1;
+z-index:0;
 animation:move-twink-back 200s linear infinite;
 }
 
 .clouds{
   background:transparent url(clouds.png) repeat top center;
-  z-index:2;
+  z-index:0;
   opacity: .4;
   animation:move-clouds-back 200s linear infinite;
+}
+
+.dropdown-img {
+  display: inline-block;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+}
+.dropdown-img:hover {
+  opacity: 0.8;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-bar input[type="text"] {
+  width: 100%;
+  padding: 12px 50px 12px 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  color: #999;
+  cursor: pointer;
+}
+
+.search-bar .search-icon:hover {
+  color: #333;
+}
+
+.image-link {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-link:hover img {
+  opacity: 0.8;
 }
