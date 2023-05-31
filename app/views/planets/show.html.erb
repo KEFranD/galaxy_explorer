@@ -1,12 +1,52 @@
-<h2><%= @planet.name %></h2>
-<p><%= @planet.description %></p>
-<p><%= @planet.location %></p>
-<%= link_to "Back", planets_path(@planet) %>
-<%# <% if policy(@planet).edit? %>
-<%= link_to "Edit this planet", edit_planet_path(@planet) %> |
-<%# <% end %>
-<!-- [...] -->
-<%= link_to "Delete",
-  planet_path(@planet),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Galaxy Explorer Show</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .right-align {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border">
+    <div class="container">
+
+      <a class="navbar-brand"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width="180px" height="60px"></a>
+
+      <form class="search-bar">
+        <input type="text" placeholder="Search..." id="search">
+        <i class="fas fa-search search-icon"></i>
+      </form>
+
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownImage">
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+ <div class="card mb-3" style="max-width: 940px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title text-align-center font-size 50px"><%= @planet.name %></h5>
+        <p class="card-text"><%= @planet.description %></p>
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

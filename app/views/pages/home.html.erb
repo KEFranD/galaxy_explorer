@@ -14,8 +14,6 @@
   <%else%>
   <%= link_to "Login", new_user_session_path%>
   <%end%>
-  <%#
-  <%= current_user.inspect %>
 
   <div class="star_background">
       <div class="stars"></div>
@@ -38,7 +36,7 @@
         <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
       </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href=<%= link_to "Login", new_user_session_path%>>
           <a class="dropdown-item" href="#">Sign Up</a>
         </div>
       </div>
