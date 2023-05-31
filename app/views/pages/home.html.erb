@@ -4,12 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
   <title>Galaxy Explorer Home</title>
 
 </head>
 <body>
-  
+
   <% if user_signed_in?%>
   <%= link_to "logout", destroy_user_session_path,  data: {turbo_method: :delete}%>
   <%else%>
@@ -17,7 +16,7 @@
   <%end%>
   <%#
   <%= current_user.inspect %>
-  
+
   <div class="star_background">
       <div class="stars"></div>
       <div class="twinkling"></div>
