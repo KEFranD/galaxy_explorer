@@ -15,7 +15,6 @@
   <%= link_to "Login", new_user_session_path%>
   <%end%>
 
-  <%= current_user.inspect %>
 
   <div class="star_background">
       <div class="stars"></div>
@@ -38,8 +37,8 @@
         <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
       </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href="#">Login</a>
-          <a class="dropdown-item" href="#">Sign Up</a>
+          <a class="dropdown-item" href="/users/sign_in">log in</a>
+          <a class="dropdown-item" href="/users/sign_up">Sign Up</a>
         </div>
       </div>
     </div>
@@ -49,11 +48,11 @@
     <div class="row">
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
-            <a href="https://www.youtube.com" class="image-link">
+            <a href="/planets/1" class="image-link">
               <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="MoonImage" class="img-fluid">
             </a>
             <div class="card-body">
-              <h5 class="card-title">Moon</h5>
+              <h5 class="card-title">Mars</h5>
               <p class="card-text">Description of Moon</p>
             </div>
           </div>
@@ -61,7 +60,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
-            <a href="https://www.youtube.com" class="image-link">
+            <a href="" class="image-link">
               <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
             </a>
             <div class="card-body">
@@ -73,7 +72,7 @@
 
         <div class="col-lg-4 col-md-6 mb-4 border-transparent">
           <div class="card">
-            <a href="https://www.youtube.com" class="image-link">
+            <a href="" class="image-link">
               <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
             </a>
             <div class="card-body">
