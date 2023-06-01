@@ -7,7 +7,7 @@
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :price %>
-    <%= f.input :rating %>
+    <%= f.input :rating, as: :select, collection: [1, 2, 3, 4, 5] %>
   </div>
 
   <div class="form-actions">
