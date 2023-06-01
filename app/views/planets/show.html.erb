@@ -45,6 +45,14 @@
         <p class="card-text"><%= @planet.price %></p>
         <p class="card-text"><%= @planet.rating %></p>
         <p class="card-text"><small class="text-muted"></small></p>
+        <p class="card-text"><%= link_to "Back to planets", planets_path %></p>
+        <p class="card-text"><%= link_to "Edit the planet", edit_planet_path %>
+        <p class="card-text">
+          <%= link_to "Delete",
+          planet_path(@planet),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        </p>
       </div>
     </div>
   </div>
