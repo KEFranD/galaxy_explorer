@@ -29,6 +29,8 @@
 
       <a class="navbar-brand"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width=180px height=60px></a>
 
+
+
       <form class="search-bar">
         <input type="text" placeholder="Search..." id="search">
         <i class="fas fa-search search-icon"></i>
@@ -51,12 +53,12 @@
           <% @planets.each do |planet| %>
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
-            <a href="#" class="image-link">
+            <%= link_to planet_path(planet) do %>
               <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="MoonImage" class="img-fluid">
-            </a>
+            <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%= link_to planet.name, planet_path(planet) %></h5>
-              <p class="card-text">Description of Moon</p>
+              <h5 class="card-title"><%= planet.name %></h5>
+              <p class="card-text"><%= planet.description %></p>
             </div>
           </div>
         </div>
@@ -71,4 +73,3 @@
 
 </body>
 </html>
-
