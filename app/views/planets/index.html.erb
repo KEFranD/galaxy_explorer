@@ -1,9 +1,4 @@
-<%# <ul>
-  <% @planets.each do |planet| %>
-    <%# <li><%= planet.name</li> %>
-  <%# <% end %>
-<%# </ul> %>
-<%# <%= link_to "New planet", new_planet_path if policy(Planet).new? %>
+
 <%# <h1>TEST</h1> %>
 
 
@@ -54,41 +49,21 @@
 
   <div class="container mt-4">
     <div class="row">
+          <% @planets.each do |planet| %>
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
             <a href="#" class="image-link">
               <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="MoonImage" class="img-fluid">
             </a>
             <div class="card-body">
-              <h5 class="card-title">Moon</h5>
+              <h5 class="card-title"><%= planet.name %></h5>
               <p class="card-text">Description of Moon</p>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <a href="#" class="image-link">
-              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Moon</h5>
-              <p class="card-text">Description of Moon</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4 border-transparent">
-          <div class="card">
-            <a href="#" class="image-link">
-              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Moon</h5>
-              <p class="card-text">Description of Moon</p>
-            </div>
-          </div>
-        </div>
+        <% end %>
+        <%# <%= link_to "New planet", new_planet_path if policy(Planet).new? %>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
