@@ -1,6 +1,6 @@
 class PlanetsController < ApplicationController
   before_action :set_planet, only: %i[show edit update destroy]
-  
+  skip_before_action :authenticate_user!, only: %i[show edit update destroy index]
 
   def index
     @planets = policy_scope(Planet)
@@ -20,9 +20,11 @@ class PlanetsController < ApplicationController
     @planet = Planet.new(planet_params)
     # @planet.user = current_user
     authorize @planet
-    @planet.save
-    # No need for app/views/planets/create.html.erb
-    redirect_to planet_path(@planet)
+    if @planet.save
+      redirect_to planet_path(@planet), notice: "Planet was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -31,9 +33,11 @@ class PlanetsController < ApplicationController
 
   def update
     authorize @planet
-    @planet.update(planet_params)
-    # No need for app/views/planets/update.html.erb
-    redirect_to planet_path(@planet)
+    if @planet.update(planet_params)
+      redirect_to @planet, notice: "Planet was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -51,6 +55,6 @@ class PlanetsController < ApplicationController
   end
 
   def planet_params
-    params.require(:planet).permit(:name, :description, :location)
+    params.require(:planet).permit(:name, :description, :location, :price, :rating)
   end
 end

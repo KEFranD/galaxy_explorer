@@ -26,8 +26,8 @@
           <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href="#">Login</a>
-          <a class="dropdown-item" href="#">Sign Up</a>
+          <a class="dropdown-item" href="/users/sign_in">Log in</a>
+          <a class="dropdown-item" href="/users/sign_up">Sign up</a>
         </div>
       </div>
     </div>
@@ -42,7 +42,17 @@
       <div class="card-body">
         <h5 class="card-title text-align-center font-size 50px"><%= @planet.name %></h5>
         <p class="card-text"><%= @planet.description %></p>
+        <p class="card-text"><%= @planet.price %></p>
+        <p class="card-text"><%= @planet.rating %></p>
         <p class="card-text"><small class="text-muted"></small></p>
+        <p class="card-text"><%= link_to "Back to planets", planets_path %></p>
+        <p class="card-text"><%= link_to "Edit the planet", edit_planet_path %>
+        <p class="card-text">
+          <%= link_to "Delete",
+          planet_path(@planet),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        </p>
       </div>
     </div>
   </div>
