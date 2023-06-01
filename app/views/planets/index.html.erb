@@ -1,6 +1,0 @@
-<ul>
-  <% @planets.each do |planet| %>
-    <li><%= planet.name %></li>
-  <% end %>
-</ul>
-<%= link_to "New planet", new_planet_path if policy(Planet).new? %>
