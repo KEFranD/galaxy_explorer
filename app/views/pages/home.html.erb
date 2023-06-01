@@ -5,6 +5,7 @@
 <head>
   <title>Galaxy Explorer Homepage</title>
   <link rel="stylesheet" href="">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous&display=swap">
 </head>
 <body>
 <div class="hero">
@@ -14,9 +15,14 @@
 </video>
 
 <nav>
-<img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" class="logo">
+<a href="/">
+  <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" class="logo">
+</a>
+
+<%# <%= link_to image_tag('https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png'), root_path, class:"logo" %>
+
 <ul>
-<li><a href="#">HOME</a></li>
+<li><a href="/">HOME</a></li>
 <li><a href="/planets">PLANETS</a></li>
 <li><a href="/users/sign_up">JOIN US</a></li>
 </ul>
