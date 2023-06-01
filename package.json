@@ -11,5 +11,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "sass": "^1.62.1"
   }
 }

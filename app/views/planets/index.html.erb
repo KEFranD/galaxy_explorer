@@ -1,6 +1,99 @@
-<ul>
+<%# <ul>
   <% @planets.each do |planet| %>
-    <li><%= planet.name %></li>
-  <% end %>
-</ul>
-<%= link_to "New planet", new_planet_path if policy(Planet).new? %>
+    <%# <li><%= planet.name</li> %>
+  <%# <% end %>
+<%# </ul> %>
+<%# <%= link_to "New planet", new_planet_path if policy(Planet).new? %>
+<%# <h1>TEST</h1> %>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Galaxy Explorer Index</title>
+
+</head>
+<body>
+
+  <% if user_signed_in?%>
+  <%= link_to "logout", destroy_user_session_path,  data: {turbo_method: :delete}%>
+  <%else%>
+  <%= link_to "Login", new_user_session_path%>
+  <%end%>
+
+  <div class="star_background">
+      <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="clouds"></div>
+      <div class="title"></div>
+    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border">
+    <div class="container">
+
+      <a class="navbar-brand"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width=180px height=60px></a>
+
+      <form class="search-bar">
+        <input type="text" placeholder="Search..." id="search">
+        <i class="fas fa-search search-icon"></i>
+      </form>
+
+      <div class="dropdown">
+      <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
+      </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownImage">
+          <a class="dropdown-item" href=<%= link_to "Login", new_user_session_path%>>
+          <a class="dropdown-item" href="#">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <a href="#" class="image-link">
+              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="MoonImage" class="img-fluid">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Moon</h5>
+              <p class="card-text">Description of Moon</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <a href="#" class="image-link">
+              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Moon</h5>
+              <p class="card-text">Description of Moon</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4 border-transparent">
+          <div class="card">
+            <a href="#" class="image-link">
+              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="Image" class="img-fluid">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Moon</h5>
+              <p class="card-text">Description of Moon</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
