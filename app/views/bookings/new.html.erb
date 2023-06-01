@@ -1,6 +1,42 @@
-<h1>New booking</h1>
-<%= simple_form_for [@planet, @booking] do |f| %>
-  <%= f.input :departure_date %>
-  <%= f.input :arrival_date %>
-  <%= f.submit "Submit booking", class: "btn btn-primary" %>
-<% end %>
+<style>
+  .booking_new_bck {
+    background: url("https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+  }
+</style>
+
+<div class = "booking_new_bck">
+  <div class="container w-25 shadow p-5 rounded text-center" style = "background-color: rgba(255, 255, 255, 0.8); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <h1>New Booking</h1>
+    <%= simple_form_for [@planet, @booking] do |f| %>
+      <div class="form-group">
+        <%= f.label :departure_date %>
+        <%= f.text_field :departure_date, class: "form-control datepicker mb-3", autocomplete: "off" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :arrival_date %>
+        <%= f.text_field :arrival_date, class: "form-control datepicker mb-3", autocomplete: "off" %>
+      </div>
+
+      <%= f.submit "Confirm Checkout", class: "btn btn-primary rounded" %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var datepickers = document.querySelectorAll(".datepicker");
+    datepickers.forEach(function(datepicker) {
+      new Pikaday({
+        field: datepicker,
+        format: "YYYY-MM-DD",
+        toString(date) {
+          return moment(date).format("YYYY-MM-DD");
+        },
+      });
+    });
+  });
+</script>
