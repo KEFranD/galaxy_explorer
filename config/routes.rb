@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :planets do
     resources :bookings, only: %i[new create]
   end
-  resources :thanks, only: [:index]
+  get 'thanks', to: 'pages#thanks'
 end
