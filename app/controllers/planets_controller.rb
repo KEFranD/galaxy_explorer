@@ -5,6 +5,9 @@ class PlanetsController < ApplicationController
   def index
     @planets = policy_scope(Planet)
     # @planets = Planet.all
+    if params[:query].present?
+      @planets = @planets.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
@@ -55,6 +58,6 @@ class PlanetsController < ApplicationController
   end
 
   def planet_params
-    params.require(:planet).permit(:name, :description, :location, :price, :rating)
+    params.require(:planet).permit(:name, :description, :location, :price, :rating, :photo)
   end
 end
