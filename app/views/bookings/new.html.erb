@@ -21,7 +21,9 @@
         <%= f.text_field :arrival_date, class: "form-control datepicker mb-3", autocomplete: "off" %>
       </div>
 
+      <%= link_to thanks_path do %>
       <%= f.submit "Confirm Checkout", class: "btn btn-primary rounded" %>
+      <% end %>
     <% end %>
   </div>
 </div>
