@@ -21,7 +21,7 @@
         <%= f.input :arrival_date, as: :string, class: "form-control datepicker mb-3", input_html: { data: { flatpickr_target: "endTime" } } %>
       </div>
 
-      <%= link_to thanks_path do %>
+      <%= link_to payment_path do %>
       <%= f.submit "Confirm Checkout", class: "btn btn-primary rounded" %>
       <% end %>
     <% end %>
