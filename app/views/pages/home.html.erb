@@ -9,28 +9,28 @@
 </head>
 <body>
 <div class="hero">
+  <video autoplay loop muted class="homepage-video">
+    <source src="https://res.cloudinary.com/dblraorbo/video/upload/v1685566764/Galaxy-Explorer/pexels-samphan-korwong-6961824-3840x2160-30fps_fpubfy.mp4" type="video/mp4">
+  </video>
 
-<video autoplay loop muted class="homepage-video">
-<source src="https://res.cloudinary.com/dblraorbo/video/upload/v1685566764/Galaxy-Explorer/pexels-samphan-korwong-6961824-3840x2160-30fps_fpubfy.mp4" type="video/mp4">
-</video>
+  <nav>
+    <a href="/">
+      <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" class="logo">
+    </a>
 
-<nav>
-<a href="/">
-  <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" class="logo">
-</a>
+    <%# <%= link_to image_tag('https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png'), root_path, class:"logo" %>
 
-<%# <%= link_to image_tag('https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png'), root_path, class:"logo" %>
+    <ul>
+      <li><a href="/">HOME</a></li>
+      <li><a href="/planets">PLANETS</a></li>
+      <li><a href="/users/sign_up">JOIN US</a></li>
+    </ul>
+  </nav>
 
-<ul>
-<li><a href="/">HOME</a></li>
-<li><a href="/planets">PLANETS</a></li>
-<li><a href="/users/sign_up">JOIN US</a></li>
-</ul>
-</nav>
-<div class="content">
-<h1>Join the Galactic Adventure!</h1>
-<a href="/planets" class="explore-button">Explore Planets</a>
-</div>
+  <div class="content">
+    <h1>Join the Galactic Adventure!</h1>
+    <a href="/planets" class="explore-button">Explore Planets</a>
+  </div>
 </div>
 
 <div class="container-fluid my-12" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
@@ -59,7 +59,6 @@
         <a href="" class="text-white me-4">
           <i class="fab fa-instagram"></i>
         </a>
-
       </div>
       <!-- Right -->
     </section>
@@ -74,10 +73,7 @@
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
             <h6 class="text-uppercase fw-bold">ABOUT</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px"/>
             <p>
               Welcome to Galaxy Explorer, your gateway to the wonders of the universe. With our website, you can embark on extraordinary journeys to explore the mysteries of outer space. Discover breathtaking destinations, from distant planets to mesmerizing nebulae. Our website provides a unique opportunity to experience the grandeur and beauty of the cosmos right from the palm of your hand. Whether you are an avid space enthusiast or a casual observer, our website offers a range of features to satisfy your curiosity.
             </p>
@@ -89,10 +85,7 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px"/>
             <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
             <p><i class="fas fa-envelope mr-3"></i> info@galaxyexplorer.com</p>
             <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
@@ -106,14 +99,8 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
-      © 2023 Copyright:
-      <a class="text-white" href="#"
-         >GALAXYEXPLORER.COM</a
-        >
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2023 Copyright: <a class="text-white" href="#">GALAXYEXPLORER.COM</a>
     </div>
     <!-- Copyright -->
   </footer>
@@ -122,4 +109,3 @@
 </div>
 
 </html>
-
