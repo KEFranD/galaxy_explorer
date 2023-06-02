@@ -65,11 +65,12 @@
         </div>
   </nav>
 
+
   <div class="container mt-5">
     <div class="card">
       <div class="row no-gutters">
         <div class="col-md-6">
-          <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" class="card-img" alt="...">
+          <%= cl_image_tag @planet.photo.key, height: 250,  width: 350, crop: :fill %>
         </div>
         <div class="col-md-6">
           <div class="card-body">

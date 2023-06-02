@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -57,7 +56,9 @@
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card">
             <%= link_to planet_path(planet) do %>
-              <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685452480/FullMoon2010.jpg_qilcar.webp" alt="MoonImage" class="img-fluid">
+               <div>
+                <%= cl_image_tag planet.photo.key, height: 250,  width: 350, crop: :fill %>
+               </div>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= planet.name %></h5>
@@ -99,3 +100,4 @@
 
 </body>
 </html>
+
