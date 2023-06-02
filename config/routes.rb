@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   get 'thanks', to: 'pages#thanks'
+  get 'payment', to: 'pages#payment'
 end
