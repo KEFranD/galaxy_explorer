@@ -5,6 +5,9 @@ class PlanetsController < ApplicationController
   def index
     @planets = policy_scope(Planet)
     # @planets = Planet.all
+    if params[:query].present?
+      @planets = @planets.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show

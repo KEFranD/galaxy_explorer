@@ -26,10 +26,14 @@
 
       <a href="/"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width=180px height=60px></a>
 
-      <form class="search-bar">
-        <input type="text" placeholder="Search..." id="search">
-        <i class="fas fa-search search-icon"></i>
-      </form>
+       <%= form_with url: planets_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
 
       <div class="dropdown">
       <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
