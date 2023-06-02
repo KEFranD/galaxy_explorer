@@ -36,11 +36,14 @@
         <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
       </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href=<%= link_to "Login", new_user_session_path%>>
-          <a class="dropdown-item" href="#">Sign Up</a>
+          <% if user_signed_in?%>
+            <%= link_to "edit", edit_user_registration_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+            <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+          <%else%>
+            <%= link_to "Login", new_user_session_path,  class: "dropdown-item"%>
+            <a href = "users/sign_up" class = "dropdown-item">Sign Up</a>
+          <%end%>
         </div>
-      </div>
-    </div>
   </nav>
 
   <div class="container mt-4">
@@ -55,7 +58,7 @@
               <h5 class="card-title"><%= planet.name %></h5>
               <p class="card-text"><%= planet.description %></p>
               <p class="card-text"><%= planet.price %></p>
-              <p class="card-text"><%= planet.rating %></p>
+              <p class="card-text"><%= planet.rating %><img src="https://res.cloudinary.com/dblraorbo/image/upload/v1685618883/Galaxy-Explorer/1289679474_f2l0u8.svg" alt="StarImage" class="img-fluid" width=15px height=15px></p>
             </div>
           </div>
         </div>
