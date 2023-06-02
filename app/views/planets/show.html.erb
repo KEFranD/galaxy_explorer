@@ -7,6 +7,21 @@
     .right-align {
       text-align: right;
     }
+    .btn-primary {
+    background-color: #C4C3C4;
+    border-color: #C4C3C4;
+    }
+
+    .btn-primary:hover{
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    animation:slidebg 5s linear infinite;
+    }
+
+    @keyframes slidebg {
+    to {
+    background-position:20vw;
+    }
+  }
   </style>
 </head>
 <body>
@@ -14,23 +29,30 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white border">
     <div class="container">
 
-      <a class="navbar-brand"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width="180px" height="60px"></a>
+      <a href="/"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685691583/fotor_2023-6-2_11_39_28_ajokjb.png" alt="Logo" width=120px></a>
 
-      <form class="search-bar">
-        <input type="text" placeholder="Search..." id="search">
-        <i class="fas fa-search search-icon"></i>
-      </form>
+      <%= form_with url: planets_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
 
       <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
-        </button>
+      <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
+      </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href="/users/sign_in">Log in</a>
-          <a class="dropdown-item" href="/users/sign_up">Sign up</a>
+          <% if user_signed_in?%>
+            <%= link_to "edit", edit_user_registration_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+            <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+          <%else%>
+            <%= link_to "Login", new_user_session_path,  class: "dropdown-item"%>
+            <a href = "users/sign_up" class = "dropdown-item">Sign Up</a>
+          <%end%>
         </div>
-      </div>
-    </div>
   </nav>
 
  <div class="card mb-3" style="max-width: 940px;">
@@ -61,72 +83,7 @@
   </div>
 </div>
 
-<div class="container-fluid my-12" style="padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0;">
 
-  <footer class="text-center text-lg-start text-white" style="background-color: #1c2331;">
-    <section
-             class="d-flex justify-content-between p-4"
-             style="background-color: #6351ce"
-             >
-      <div class="me-5">
-        <span>Stay connected via social networks:</span>
-      </div>
-
-
-      <div>
-        <a href="/" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="/" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="/" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </section>
-
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <div class="row mt-3">
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold">ABOUT</h6>
-            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px"/>
-            <p>
-              Welcome to Galaxy Explorer, your gateway to the wonders of the universe! With our website, you can embark on extraordinary journeys to explore the mysteries of outer space.
-            </p>
-
-          </div>
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p><i class="fas fa-home mr-3"></i> Le Wagon 🚀, Mauritius</p>
-            <p><i class="fas fa-envelope mr-3"></i> info@galaxyexplorer.com</p>
-            <p><i class="fas fa-phone mr-3"></i> + 230 534 567 88</p>
-            <p><i class="fas fa-print mr-3"></i> + 230 534 567 89</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
-      © 2023 Copyright:
-      <a class="text-white" href="/"
-         >GALAXYEXPLORER.COM</a
-        >
-
-    </div>
-  </footer>
-
-</div>
 
 </body>
 </html>
