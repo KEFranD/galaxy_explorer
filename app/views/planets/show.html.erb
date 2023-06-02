@@ -1,65 +1,111 @@
-<!DOCTYPE html>
+
+
+
 <html>
+
 <head>
-  <title>Galaxy Explorer Show</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Planet Page</title>
   <style>
-    .right-align {
-      text-align: right;
+
+    .card-title {
+      font-size: 50px;
     }
+    
+    .btn-primary {
+    background-color: #C4C3C4;
+    border-color: #C4C3C4;
+    }
+
+    .btn-primary:hover{
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    animation:slidebg 5s linear infinite;
+    }
+
+    @keyframes slidebg {
+    to {
+    background-position:20vw;
+    }
+  }
+
   </style>
 </head>
-<body>
 
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white border">
     <div class="container">
 
-      <a class="navbar-brand"><img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width="180px" height="60px"></a>
+      <a class="navbar-brand" href="#">
+        <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685450979/Screenshot_2023-05-30_at_15.28.59-PhotoRoom.png-PhotoRoom_a1bmdi.png" alt="Logo" width="180px" height="60px">
+      </a>
 
-      <form class="search-bar">
-        <input type="text" placeholder="Search..." id="search">
-        <i class="fas fa-search search-icon"></i>
-      </form>
+      <%= form_with url: planets_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
 
       <div class="dropdown">
-        <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
-        </button>
+      <button class="btn dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="https://res.cloudinary.com/dujnrrugq/image/upload/v1685448517/astronaut-helmet-vintage-logo-concept-black-and-white-color-hand-drawn-illustration-vector_ctk0ow.jpg" alt="Image" id="dropdownImage" class="dropdown-img">
+      </button>
         <div class="dropdown-menu" aria-labelledby="dropdownImage">
-          <a class="dropdown-item" href="/users/sign_in">Log in</a>
-          <a class="dropdown-item" href="/users/sign_up">Sign up</a>
+          <% if user_signed_in?%>
+            <%= link_to "edit", edit_user_registration_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+            <%= link_to "logout", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+          <%else%>
+            <%= link_to "Login", new_user_session_path,  class: "dropdown-item"%>
+            <a href = "users/sign_up" class = "dropdown-item">Sign Up</a>
+          <%end%>
+        </div>
+  </nav>
+
+
+  <div class="container mt-5">
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-md-6">
+          <%= cl_image_tag @planet.photo.key, height: 250,  width: 350, crop: :fill %>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4"><%= @planet.name %></h2>
+            <p class="card-text"><%= @planet.description %></p>
+            <h4 class="card-text">Rs <%= @planet.price %></h4>
+
+            <div class="mb-3">
+              <span class="mr-2">Rating:</span>
+              <div class="d-inline">
+                <script>
+                  var rating = <%= @planet.rating %>;
+                  for (var i = 0; i < rating; i++) {
+                    document.write("⭐️");
+                  }
+                </script>
+              </div>
+            </div>
+            <button class="btn btn-outline-dark">
+              <p class="card-text"><%= link_to "Book it", new_planet_booking_path(@planet) %></p>
+            </button>
+
+            <p class="card-text">
+              <p class="card-text"><%= link_to "Back to planets", planets_path %></p>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-
- <div class="card mb-3" style="max-width: 940px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <%= cl_image_tag @planet.photo.key, height: 250,  width: 350, crop: :fill %>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title text-align-center font-size 50px"><%= @planet.name %></h5>
-        <p class="card-text"><%= @planet.description %></p>
-        <p class="card-text"><%= @planet.price %></p>
-        <p class="card-text"><%= @planet.rating %><img src="https://res.cloudinary.com/dblraorbo/image/upload/v1685618883/Galaxy-Explorer/1289679474_f2l0u8.svg" alt="StarImage" class="img-fluid" width=20px height=20px></p>
-        <p class="card-text"><small class="text-muted"></small></p>
-        <p class="card-text"><%= link_to "Back to planets", planets_path %></p>
-        <p class="card-text"><%= link_to "Edit the planet", edit_planet_path %>
-        <p class="card-text">
-          <%= link_to "Delete",
-          planet_path(@planet),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-        </p>
-        <p class="card-text">
-          <%= link_to "Book it", new_planet_booking_path(@planet) %>
-        </p>
-      </div>
-    </div>
   </div>
-</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
